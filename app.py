@@ -96,7 +96,7 @@ def get_predictions(uploaded_files) :
 
     for path, ela_img in zip(uploaded_files, ela_files):
         # Perform prediction with YOLOv8
-        results = model.predict(source=ela_img, show=False, save=False, conf=0.1)
+        results = model.predict(source=ela_img, show=False, save=False, conf=0.5)
 
         # checking for bounding boxes -
         for result in results:
