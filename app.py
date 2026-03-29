@@ -5,12 +5,16 @@ from ultralytics import YOLO
 
 from PIL import Image, ImageChops, ImageEnhance
 import os
+import urllib.request
 import cv2
 import numpy as np
 import pandas as pd
 import time
 import itertools
 import glob
+
+MODEL_URL = "https://github.com/dummy-repo-1/yolo_ID_card_deploy/releases/download/weights.v1.0/weights.onnx"
+MODEL_PATH = "weights.onnx"
 
 st.title("AI-Powered ID Card Forgery Detection with precision", width="stretch", text_alignment ="center")
 st.html(
@@ -27,8 +31,12 @@ uploaded_files = st.file_uploader(
 
 # Loading Inference model with trained weights
 @st.cache_resource
-def load_model() :
-    return YOLO("weights.onnx", task="detect")
+def load_model():
+    st.info("Downloading model weights for the first time. This may take a minute...")
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+    st.success("Model downloaded successfully!")
+        
+    return YOLO(MODEL_PATH, task='detect')
 
 
 # Function for converting colored and tampered images into ELA images
