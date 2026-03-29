@@ -32,9 +32,9 @@ uploaded_files = st.file_uploader(
 # Loading Inference model with trained weights
 @st.cache_resource
 def load_model():
-    st.info("Downloading model weights for the first time. This may take a minute...")
+    # st.info("Downloading model weights for the first time. This may take a minute...")
     urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-    st.success("Model downloaded successfully!")
+    # st.success("Model downloaded successfully!")
         
     return YOLO(MODEL_PATH, task='detect')
 
