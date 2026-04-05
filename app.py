@@ -16,7 +16,7 @@ import glob
 MODEL_URL = "https://github.com/dummy-repo-1/yolo_ID_card_deploy/releases/download/weights.v1.0/weights.onnx"
 MODEL_PATH = "weights.onnx"
 st.set_page_config(page_title="Image Input", layout="centered")
-st.title("AI-Powered ID Card Forgery Detection with Precision", width="center", text_alignment ="center")
+st.title("AI-Powered ID Card Forgery Detection with Precision", text_alignment ="center")
 st.html(
     "<div style=font-size:20px;>Uncover hidden tampering in seconds using a powerful fusion of YOLO — delivering 99.5% accurate fraud detection.<br/>You can check out the source code <a href='https://github.com/projjal2025/yolov8-ID-card', target='_blank'>Click here</a></div>"
 )
